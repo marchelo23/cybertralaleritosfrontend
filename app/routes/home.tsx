@@ -27,12 +27,12 @@ export default function Home() {
                 BETA
               </span>
             </div>
-            <a
-              href="#login"
+            <Link
+              to="/login"
               className="text-sm sm:text-base font-medium border border-white/30 px-4 py-2 rounded-lg hover:bg-white hover:text-dark transition-all duration-300"
             >
               Iniciar Sesión
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -484,12 +484,12 @@ export default function Home() {
               >
                 Quiero invertir
               </Link>
-              <a
-                href="#login"
+              <Link
+                to="/login"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 Login
-              </a>
+              </Link>
             </div>
           </div>
 
