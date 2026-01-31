@@ -3,13 +3,85 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  --color-dark: #121212;
+  --color-dark-lighter: #1a1a1a;
+  --color-dark-card: #1e1e1e;
+  --color-gray-border: #2a2a2a;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-dark text-white antialiased;
+}
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle gradient animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Button hover effects */
+.btn-primary {
+  @apply bg-white text-dark font-semibold px-8 py-4 rounded-lg transition-all duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-gray-200 scale-105;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary {
+  @apply border-2 border-white text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 bg-transparent;
+}
+
+.btn-secondary:hover {
+  @apply bg-white text-dark scale-105;
+}
+
+/* Sticky footer mobile */
+@media (max-width: 768px) {
+  .sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1rem;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    padding-bottom: 5rem;
   }
 }
